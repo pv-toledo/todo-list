@@ -1,0 +1,4 @@
+.headbar {
+    background-color: var(--gray-700);
+    min-height: 12.5rem;
+}
