@@ -1,0 +1,37 @@
+.tasksContainer {
+    border: 1px solid white;
+    margin-top: calc(1.5rem + 4rem ); /*1.5 rem do offset do input e 4 rem de distância efetiva */
+    width: min(100%, 46rem);
+    align-self: center;
+}
+
+.infoContainer {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.infoContainer .created,  .infoContainer .done {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem
+}
+
+.infoContainer .created span {
+    color: var(--blue);
+    font-size: 0.875rem;
+}
+
+.infoContainer .done span {
+    color: var(--purple);
+    font-size: 0.875rem;
+}
+
+.infoContainer .created .counter, .infoContainer .done .counter {
+    padding: 0.125rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+    background-color: var(--gray-400);
+    color: var(--gray-200);
+    border-radius: 999px;
+}

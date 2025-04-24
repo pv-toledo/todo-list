@@ -39,7 +39,7 @@
     bottom: -1.5rem;
 
     gap: 0.5rem;
-    min-width: 46rem; 
+    width: min(100%, 46rem);
 }
 
 .inputContainer input {
