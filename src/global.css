@@ -28,5 +28,6 @@
 
 body {
     background-color: var(--gray-600);
+    font-family: "Inter", sans-serif;
     -webkit-font-smoothing: antialiased; /* Deixa as fontes mais finais */
 }

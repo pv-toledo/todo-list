@@ -4,10 +4,13 @@ import { Headbar } from './components/headbar'
 import './global.css'
 
 export function App() {
-  
+
 
   return (
-    <Headbar/>
+    <div>
+      <Headbar />
+    </div>
+
   )
 }
 
