@@ -9,19 +9,27 @@ export interface TasksProps {
     onCheckboxChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
+function countCompletedTasks (task: TaskType[]) {
+    const completedTasks = task.filter(task => {task.isDone === true})
+    return `${completedTasks.length} de ${task.length}`
+}
+
 export function Tasks ({task, onCheckboxChange}: TasksProps) {
+
     return (
+
         <div className={styles.tasksContainer}>
+
             <div className={styles.infoContainer}>
 
                 <div className={styles.created}>
                     <span>Tarefas criadas</span>
-                    <span className={styles.counter}>0</span>
+                    <span className={styles.counter}>{task.length}</span>
                 </div>
 
                 <div className={styles.done}>
                     <span>Concluídas</span>
-                    <span className={styles.counter}>0</span>
+                    <span className={styles.counter}>{countCompletedTasks(task)}</span>
                 </div>
             </div>
 
