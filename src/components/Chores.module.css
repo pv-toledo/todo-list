@@ -4,10 +4,21 @@
     gap: 0.75rem;
 }
 
-.chore span {
+/*Estilo para quando o checkbox não está marcado*/
+.chore .paragraph {
     color: var(--gray-100);
     line-height: 140%;
     font-size: 0.875rem;
+    transition: all 0.2s ease;
+}
+
+/*Estilo para quando o checkbox está marcado*/
+.chore .paragraphChecked {
+    color: var(--gray-300);
+    line-height: 140%;
+    font-size: 0.875rem;
+    text-decoration: line-through;
+    transition: all 0.2s ease;
 }
 
 .chore .checkboxLabel {
@@ -17,10 +28,12 @@
     position: relative;
 }
 
+/*Esconde o checkbox original para criar um personalizado*/
 .chore .checkboxLabel input {
     display: none;
 }
 
+/*Checkbox personalizado*/
 .chore .checkboxSpan {
     width: 1.5rem;
     height: 1.5rem;
@@ -34,11 +47,13 @@
     align-self: flex-start;
 }
 
+/*Muda a cor do checkbox para quando for marcado*/
 .chore .checkboxLabel input:checked + .checkboxSpan {
     background-color: var(--purple-dark);
     border-color: var(--purple-dark);
 }
 
+/*Adiciona o check no checkbox quando for marcado. Precisa ser feito por um pseudoelemento (after)*/
 .chore .checkboxLabel input:checked + .checkboxSpan::after {
     content: "✓";
     position: absolute;
