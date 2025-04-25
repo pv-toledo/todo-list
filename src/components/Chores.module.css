@@ -45,12 +45,23 @@
     justify-content: center;
     transition: all 0.2s ease;
     align-self: flex-start;
+    transition: all ease 0.2s;
+}
+
+.chore .checkboxSpan:hover {
+    border: 2px solid var(--blue-dark);
 }
 
 /*Muda a cor do checkbox para quando for marcado*/
 .chore .checkboxLabel input:checked + .checkboxSpan {
     background-color: var(--purple-dark);
     border-color: var(--purple-dark);
+    transition: all ease 0.2s;
+}
+
+.chore .checkboxLabel input:checked + .checkboxSpan:hover {
+    background-color: var(--purple);
+    border-color: var(--purple);
 }
 
 /*Adiciona o check no checkbox quando for marcado. Precisa ser feito por um pseudoelemento (after)*/
@@ -58,4 +69,21 @@
     content: "✓";
     position: absolute;
     color: var(--gray-100);
+}
+
+.chore button {
+    display: flex;
+    border: none;
+    color: var(--gray-300);
+    background-color: transparent;
+    width: 1.5rem;
+    align-self: flex-start;
+    transition: all ease 0.2s;
+}
+
+.chore button:hover {
+    color: var(--danger);
+    background-color: var(--gray-400);
+    border-radius: 4px;
+    cursor: pointer;
 }

@@ -1,8 +1,13 @@
 import styles from './Tasks.module.css'
-import clipboard from '../assets/Clipboard.svg'
-import { Chores } from './Chores'
+import { Empty } from './Empty';
+import { TaskType } from '../App';
+import { Chores } from './Chores';
 
-export function Tasks () {
+export interface TasksProps {
+    task: TaskType[]
+}
+
+export function Tasks ({task}: TasksProps) {
     return (
         <div className={styles.tasksContainer}>
             <div className={styles.infoContainer}>
@@ -18,14 +23,19 @@ export function Tasks () {
                 </div>
             </div>
 
-            {/* <div className={styles.listContainer}>
-                <img src={clipboard} alt="Imagem de uma prancheta de anotações" />
-                <div className={styles.paragraph}>
-                    <p className={styles.firstLine}>Você ainda não tem tarefas cadastradas</p>
-                    <p className={styles.secondLine}>Crie tarefas e organize seus itens a fazer</p>
-                </div>
-            </div> */}
-            <Chores/>
+            {task.length === 0
+            ? <Empty />
+            : task.map(item => {
+                return (
+                    <Chores
+                        chore ={item}
+                    />
+                )
+            })
+            
+            }
+            
+            
         </div>
     )
 }
