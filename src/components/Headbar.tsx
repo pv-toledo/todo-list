@@ -1,8 +1,14 @@
 import styles from './Headbar.module.css'
 import todoLogo from '../assets/rocket.svg'
 import plus from '../assets/plus.svg'
+import { FormEvent } from 'react'
 
-export function Headbar () {
+interface HeadbarProps {
+    onCreateNewTask: (event:FormEvent<HTMLFormElement>) => void
+}
+
+export function Headbar ({onCreateNewTask}: HeadbarProps) {
+   
     return (
         <div className={styles.headbar}>
             <div className={styles.logoContainer}>
@@ -14,14 +20,18 @@ export function Headbar () {
                 </div>
 
                 <div className={styles.inputContainer}>
-                    <input type="text" placeholder='Adicione uma nova tarefa'/>
-                    <button>
-                        <span>Criar</span>
-                        <img src={plus} alt="Sinal de adicionar" />
-                    </button>
+                    <form onSubmit={onCreateNewTask}>
+                        <input type="text" placeholder='Adicione uma nova tarefa' name='newTask'/>
+                        <button type='submit'>
+                            <span>Criar</span>
+                            <img src={plus} alt="Sinal de adicionar" />
+                        </button>
+                    </form>
+                    
                 </div>
                 
             </div>
         </div>
     )
 }
+

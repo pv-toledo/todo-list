@@ -27,7 +27,7 @@
     color: var(--purple-dark)
 }
 
-.inputContainer {
+.inputContainer form {
     display: flex;
     justify-content: space-between;
     position: absolute; /*Para alinhar com relação a headbar*/

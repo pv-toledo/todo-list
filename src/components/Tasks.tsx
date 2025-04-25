@@ -2,12 +2,14 @@ import styles from './Tasks.module.css'
 import { Empty } from './Empty';
 import { TaskType } from '../App';
 import { Chores } from './Chores';
+import { ChangeEvent } from 'react';
 
 export interface TasksProps {
-    task: TaskType[]
+    task: TaskType[];
+    onCheckboxChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export function Tasks ({task}: TasksProps) {
+export function Tasks ({task, onCheckboxChange}: TasksProps) {
     return (
         <div className={styles.tasksContainer}>
             <div className={styles.infoContainer}>
@@ -28,7 +30,9 @@ export function Tasks ({task}: TasksProps) {
             : task.map(item => {
                 return (
                     <Chores
+                        key={item.id}
                         chore ={item}
+                        onCompletingChore = {onCheckboxChange}
                     />
                 )
             })

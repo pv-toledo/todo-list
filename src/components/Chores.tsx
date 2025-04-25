@@ -1,19 +1,14 @@
 import styles from './Chores.module.css'
 import {Trash} from 'phosphor-react'
-import { useState } from 'react'
+import { ChangeEvent } from 'react'
 import { TaskType } from '../App';
 
 interface ChoresProps {
     chore: TaskType;
+    onCompletingChore: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export function Chores ({chore}: ChoresProps) {
-
-    const [isChecked, setIsChecked] = useState<boolean>(false);
-
-    function handleCheckboxChange (event: React.ChangeEvent<HTMLInputElement>) {
-        setIsChecked(event.target.checked)
-    }
+export function Chores ({chore, onCompletingChore}: ChoresProps) {
 
     return (
         <div className={styles.chore}>
@@ -22,12 +17,13 @@ export function Chores ({chore}: ChoresProps) {
                     type="checkbox" 
                     id='checkbox'
                     checked={chore.isDone}
-                    onChange={handleCheckboxChange} 
+                    onChange={onCompletingChore}
+                    value={chore.id}
                 />
                 <span className={styles.checkboxSpan}></span>
             </label>
             
-            <span className={isChecked? styles.paragraphChecked : styles.paragraph}>{chore.taskText}</span>
+            <span className={chore.isDone? styles.paragraphChecked : styles.paragraph}>{chore.taskText}</span>
             <button>
                 <Trash size={24}/>
             </button>
