@@ -36,3 +36,9 @@
     color: var(--gray-200);
     border-radius: 999px;
 }
+
+@media (max-width: 768px) {
+    .tasksContainer {
+        padding: 0 3rem;
+    }
+}

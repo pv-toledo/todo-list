@@ -43,7 +43,7 @@ export function Tasks ({task, onCheckboxChange, completedTasks, handleDeleteTask
                 )
             })
             
-            }
+            } 
             
             
         </div>

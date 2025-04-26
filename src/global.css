@@ -31,3 +31,9 @@ body, input, button {
     font-family: "Inter", sans-serif;
     -webkit-font-smoothing: antialiased; /* Deixa as fontes mais finais */
 }
+
+@media (max-width: 768px) {
+    html {
+        font-size: 87.5%;
+    }
+}

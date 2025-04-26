@@ -87,4 +87,10 @@
 .inputContainer button span {
     font-size: 0.875rem;
     color: var(--gray-100);
+} 
+
+@media (max-width: 768px) {
+    .inputContainer form {
+        padding: 0 3rem;
+    }
 }
