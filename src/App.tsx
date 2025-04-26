@@ -44,6 +44,14 @@ export function App() {
     setCompletedCount(completedTasks.length)
   }
 
+  //Evento de clicar em um botão
+  function handleDeleteTask (event: React.MouseEvent<HTMLButtonElement>) {
+    const id = event.currentTarget.dataset.id; //ID da task é passado por um dataset no botão
+    if (!id) return
+    const taskWithoutDeleted = task.filter(item => item.id !== parseInt(id));
+    setTasks(taskWithoutDeleted); //Atualiza o estado sem o comentário excluído
+  }
+
   return (
     <div className={styles.container}>
       <Headbar
@@ -53,6 +61,7 @@ export function App() {
         task={task}
         onCheckboxChange={handleCheckboxChange}
         completedTasks = {completedCount}
+        handleDeleteTask = {handleDeleteTask}
       />
     </div>
 

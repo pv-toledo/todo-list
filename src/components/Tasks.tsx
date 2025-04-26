@@ -8,9 +8,10 @@ export interface TasksProps {
     task: TaskType[];
     onCheckboxChange: (event: ChangeEvent<HTMLInputElement>) => void;
     completedTasks: number;
+    handleDeleteTask: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export function Tasks ({task, onCheckboxChange, completedTasks}: TasksProps) {
+export function Tasks ({task, onCheckboxChange, completedTasks, handleDeleteTask}: TasksProps) {
 
     return (
 
@@ -37,6 +38,7 @@ export function Tasks ({task, onCheckboxChange, completedTasks}: TasksProps) {
                         key={item.id}
                         chore ={item}
                         onCompletingChore = {onCheckboxChange}
+                        onDeleteTask = {handleDeleteTask}
                     />
                 )
             })

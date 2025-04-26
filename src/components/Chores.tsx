@@ -6,9 +6,10 @@ import { TaskType } from '../App';
 interface ChoresProps {
     chore: TaskType;
     onCompletingChore: (event: ChangeEvent<HTMLInputElement>) => void;
+    onDeleteTask: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export function Chores ({chore, onCompletingChore}: ChoresProps) {
+export function Chores ({chore, onCompletingChore, onDeleteTask}: ChoresProps) {
 
     return (
         <div className={styles.chore}>
@@ -24,7 +25,7 @@ export function Chores ({chore, onCompletingChore}: ChoresProps) {
             </label>
             
             <span className={chore.isDone? styles.paragraphChecked : styles.paragraph}>{chore.taskText}</span>
-            <button>
+            <button data-id={chore.id} onClick={onDeleteTask}>
                 <Trash size={24}/>
             </button>
             
