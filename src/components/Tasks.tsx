@@ -7,14 +7,10 @@ import { ChangeEvent } from 'react';
 export interface TasksProps {
     task: TaskType[];
     onCheckboxChange: (event: ChangeEvent<HTMLInputElement>) => void;
+    completedTasks: number;
 }
 
-function countCompletedTasks (task: TaskType[]) {
-    const completedTasks = task.filter(task => {task.isDone === true})
-    return `${completedTasks.length} de ${task.length}`
-}
-
-export function Tasks ({task, onCheckboxChange}: TasksProps) {
+export function Tasks ({task, onCheckboxChange, completedTasks}: TasksProps) {
 
     return (
 
@@ -29,7 +25,7 @@ export function Tasks ({task, onCheckboxChange}: TasksProps) {
 
                 <div className={styles.done}>
                     <span>Concluídas</span>
-                    <span className={styles.counter}>{countCompletedTasks(task)}</span>
+                    <span className={styles.counter}>{completedTasks} de {task.length}</span>
                 </div>
             </div>
 

@@ -12,10 +12,10 @@ export function Chores ({chore, onCompletingChore}: ChoresProps) {
 
     return (
         <div className={styles.chore}>
-            <label htmlFor="checkbox" className={styles.checkboxLabel}>
+            <label htmlFor={String(chore.id)} className={styles.checkboxLabel}>
                 <input 
                     type="checkbox" 
-                    id='checkbox'
+                    id={String(chore.id)}
                     checked={chore.isDone}
                     onChange={onCompletingChore}
                     value={chore.id}

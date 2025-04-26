@@ -14,6 +14,7 @@ export interface TaskType {
 export function App() {
 
   const [task, setTasks] = useState<TaskType[]>([])
+  const [completedCount, setCompletedCount] = useState<number>(0);
 
   function handleCreateNewTask(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -27,6 +28,7 @@ export function App() {
     const newTask = { id: id, taskText: newTaskValue, isDone: isDone };
     input.value = ''
     setTasks([...task, newTask])
+
   }
 
   function handleCheckboxChange(event: ChangeEvent<HTMLInputElement>) {
@@ -35,7 +37,11 @@ export function App() {
     //Percorre o array de tasks. Quando achar a task com o id que foi marcado no checkbox, altera o valor de isDone. Para os outros itens, apenas repete o que já estava lá. É preciso fazer assim pelo princípio de imutabilidade do react
     const updatedTasks = task.map(item => item.id === parseInt(checkbox.value) ? {... item, isDone: !item.isDone} : item)
 
+    //Sem chaves (diferente de updatedTasks), senão retorna undefined
+    const completedTasks = updatedTasks.filter(item => item.isDone === true)
+
     setTasks(updatedTasks)
+    setCompletedCount(completedTasks.length)
   }
 
   return (
@@ -46,6 +52,7 @@ export function App() {
       <Tasks
         task={task}
         onCheckboxChange={handleCheckboxChange}
+        completedTasks = {completedCount}
       />
     </div>
 
